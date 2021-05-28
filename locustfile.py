@@ -2,10 +2,13 @@
 import os
 import random
 import uuid
-from locust import HttpUser, task, constant
+from locust import HttpUser, task, constant, constant_pacing
 
 CLIENT_SECRET = str(os.environ["LOCUST_CLIENT_SECRET"])
 CLIENT_ID = str(os.environ["LOCUST_CLIENT_ID"])
+
+SK_API_ROUTE = str(os.environ["SK_API_ROUTE"])
+SK_API_KEY = str(os.environ["SK_API_KEY"])
 
 
 class IdemiaUser(HttpUser):
@@ -59,4 +62,19 @@ class IdemiaUser(HttpUser):
             "/idemia/enrollment/%s" % enrollment_uuid,
             headers={"Authorization": self.bearer_token},
             name="/idemia/enrollment/uuid",
+        )
+
+
+class SKTestUser(HttpUser):  # pylint: disable=too-few-public-methods
+    """Load test SK"""
+
+    wait_time = constant_pacing(1)
+
+    @task(1)
+    def basic_http_flow(self):
+        """Invoke basic sk http flow"""
+        self.client.post(
+            f"https://{SK_API_ROUTE}/v1/company/wdK3fH48XuoXzvZyeNJEYFA9i8K72BZg/flows/"
+            "IU1iDIvviIth5jiYmNvgsS43Kg29RxyB/start",
+            headers={"x-sk-api-key": SK_API_KEY},
         )
