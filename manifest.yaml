@@ -10,3 +10,4 @@ applications:
     command: locust --host https://idva-api-((ENVIRONMENT)).app.cloud.gov ((TASK_ARG))
     env:
       SK_API_KEY: ((SK_API_KEY))
+      CSV_FILE: ((CSV_FILE))
