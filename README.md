@@ -13,7 +13,7 @@ but that those components work when accessed by its users. This project will aim
 - Identify areas within IDVA that can be improved (performance or otherwise)
 
 ## Installation
-To install the IDVA Load Testing tooling, use the following:
+To install the IDVA Load Testing tooling locally, use the following:
 ```shell
 git clone https://github.com/18F/identity-idva-load-testing
 cd identity-idva-load-testing
@@ -22,7 +22,38 @@ python -m pip install -r requirements.txt
 ```
 
 ## Usage
-Running the tool (after following the above install) can be done with `locust`
+
+### Configure
+
+The following variables need to be configured to run locust.
+
+ - `ENVIRONMENT` - environment name
+ - `SK_API_KEY` - api key for app to be used
+ - `CSV_FILE` - path to file containing test data. Use empty string if no file is needed.
+ - `TASK_ARG` - locust argument that determines which test to run. Specify a locustfile and optionally a set of tags to select which load tests are run.
+
+        -f ./locustfiles/loadtest.py
+        -f ./locustfiles/usps.py -T usps_ok
+        -f ./locustfiles/usps.py -T usps_missing_param
+        -f ./locustfiles/usps.py -T usps_not_found
+
+### Local
+The tool can be run with `locust --host https://idva-api-<ENVIRONMENT>.app.cloud.gov <TASK_ARG>`. Locust will also look for `SK_API_KEY` and `CSV_FILE` environment variables.
+
+### Cloud
+Run on Locust in the cloud.gov environment with:
+```
+cf push --vars-file .\vars.yaml
+
+```
+**vars.yaml:**
+```
+---
+ENVIRONMENT: dev
+SK_API_KEY: <API_KEY>
+TASK_ARG: -f ./locustfiles/usps.py -T usps_ok
+CSV_FILE: ./test_data.csv
+```
 
 ## Contributing
 
