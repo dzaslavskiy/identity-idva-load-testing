@@ -1,2 +1,7 @@
 .venv
-__pycache__
+locustfiles/__pycache__
+.github
+*.md
+.pre-commit-config.yaml
+requirements-dev.txt 
+vars.yaml
