@@ -1,0 +1,23 @@
+name: Python-Checks
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '**.py'  # All python files in the repository
+  pull_request:
+    paths:
+      - '**.py'
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+
+      - uses: psf/black@stable
