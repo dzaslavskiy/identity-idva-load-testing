@@ -28,11 +28,6 @@ cf set-env sk-events SK_SECRETS "$(cat sk-secrets-es.json)"
 cf set-env sk-events-read SK_SECRETS "$(cat sk-secrets-es.json)"
 cf set-env sk-analytics SK_SECRETS "$(cat sk-secrets-es.json)"
 
-cf set-env sk-esconfigs NODE_EXTRA_CA_CERTS /etc/cf-system-certificates/trusted-ca-1.crt
-cf set-env sk-events NODE_EXTRA_CA_CERTS /etc/cf-system-certificates/trusted-ca-1.crt
-cf set-env sk-events-read NODE_EXTRA_CA_CERTS /etc/cf-system-certificates/trusted-ca-1.crt
-cf set-env sk-analytics NODE_EXTRA_CA_CERTS /etc/cf-system-certificates/trusted-ca-1.crt
-
 read -rp "5. run sk-esconfigs"
 
 cf run-task sk-esconfigs --name task
