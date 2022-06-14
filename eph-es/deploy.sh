@@ -7,6 +7,7 @@ secrets_file="sk-secrets-dev.json"
 echo "press key to continue to next step:"
 read -rp "1. Deploy elasticsearch app"
 
+cf target -s "$env"
 cf push --vars-file ./vars.yaml --var ENVIRONMENT=$env
 
 read -rp "2. Network policies"
