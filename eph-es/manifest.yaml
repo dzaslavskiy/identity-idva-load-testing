@@ -8,13 +8,7 @@ applications:
     instances: ((INSTANCES))
     buildpacks:
       - binary_buildpack
-    command: |
-      wget -q https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-oss-7.4.2-linux-x86_64.tar.gz
-      wget -q https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-oss-7.4.2-linux-x86_64.tar.gz.sha512
-      shasum -a 512 -c elasticsearch-oss-7.4.2-linux-x86_64.tar.gz.sha512 
-      tar -xzf elasticsearch-oss-7.4.2-linux-x86_64.tar.gz --skip-old-files
-      cd elasticsearch-7.4.2/ 
-      ./bin/elasticsearch
+    command: ./install.sh
     env:
       ENVIRONMENT_NAME: ((ENVIRONMENT))
     sidecars:
