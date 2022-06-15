@@ -20,7 +20,7 @@ cf add-network-policy sk-analytics eph-es --protocol tcp --port 61443
 read -rp "3. configure secrets"
 
 # settings es configuration in sk secrets to point to eph-es
-jq --arg env "$env" '.es.usePath = false | .es.url = "identity-idva-es-\($env).apps.internal:61443" | .es.accessKeyId = "id" | .es.secretAccessKey = "sec"' "$secrets_file" > sk-secrets-es.json
+jq --arg env "$env" '.es.usePath = false | .es.url = "idva-eph-es-\($env).apps.internal:61443" | .es.accessKeyId = "id" | .es.secretAccessKey = "sec"' "$secrets_file" > sk-secrets-es.json
 
 read -rp "4. configure sk-esconfigs, sk-events, sk-events-read, sk-analytics"
 
