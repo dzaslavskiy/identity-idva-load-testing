@@ -1,48 +1,46 @@
 {
-    "company_template_1": {
-        "order": 0,
-        "index_patterns": [
-            "prod-skevents*",
-            "dev-skevents*",
-            "local-skevents*"
-        ],
-        "settings": {
-            "index.mapping.total_fields.limit": 2000
-        },
-        "mappings": {
+    "order": 0,
+    "index_patterns": [
+        "prod-skevents*",
+        "dev-skevents*",
+        "local-skevents*"
+    ],
+    "settings": {
+        "index.mapping.total_fields.limit": 2000
+    },
+    "mappings": {
+        "properties": {
+            "eventCode": {
+                "type": "text"
+            },
+            "userInfo": {
+                "enabled": false
+            },
+            "httpBody": {
+                "enabled": false
+            },
+            "httpQuery": {
+                "enabled": false
+            },
+            "httpParams": {
+                "enabled": false
+            },
+            "logLevel": {
+                "enabled": false
+            },
+            "response": {
+                "enabled": false
+            },
+            "parameters": {
+                "enabled": false
+            },
+            "cookies": {
+                "enabled": false
+            },
             "properties": {
-                "eventCode": {
-                    "type": "text"
-                },
-                "userInfo": {
-                    "enabled": false
-                },
-                "httpBody": {
-                    "enabled": false
-                },
-                "httpQuery": {
-                    "enabled": false
-                },
-                "httpParams": {
-                    "enabled": false
-                },
-                "logLevel": {
-                    "enabled": false
-                },
-                "response": {
-                    "enabled": false
-                },
-                "parameters": {
-                    "enabled": false
-                },
-                "cookies": {
-                    "enabled": false
-                },
-                "properties": {
-                    "enabled": false
-                }
+                "enabled": false
             }
-        },
-        "aliases": {}
-    }
+        }
+    },
+    "aliases": {}
 }

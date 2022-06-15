@@ -1,20 +1,19 @@
 {
-    "company_eventsoutcomes_template_1": {
-        "order": 0,
-        "index_patterns": [
-            "prod-eventsoutcome*",
-            "dev-eventsoutcome*",
-            "local-eventsoutcome*"
-        ],
-        "settings": {},
-        "mappings": {
-            "properties": {
-                "errors": {
-                    "dynamic": false,
-                    "properties": {}
-                }
+    "order": 0,
+    "index_patterns": [
+        "prod-eventsoutcome*",
+        "dev-eventsoutcome*",
+        "local-eventsoutcome*"
+    ],
+    "settings": {},
+    "mappings": {
+        "properties": {
+            "errors": {
+                "dynamic": false,
+                "properties": {}
             }
-        },
-        "aliases": {}
-    }
+        }
+    },
+    "aliases": {}
+
 }
