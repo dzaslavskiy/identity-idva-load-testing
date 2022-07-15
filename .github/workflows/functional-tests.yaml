@@ -2,7 +2,7 @@
 # This workflow will install Python dependencies and run tests so that
 # unit tests can be run against pull requests.
 
-name: Unit-Tests
+name: Functional-Tests
 
 on:
   pull_request:
