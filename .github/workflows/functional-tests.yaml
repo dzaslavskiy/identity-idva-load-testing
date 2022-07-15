@@ -33,7 +33,9 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+        working-directory: selenium
 
       - name: Test with Pytest unit tests
         run: |
           python -m main.py
+        working-directory: selenium
