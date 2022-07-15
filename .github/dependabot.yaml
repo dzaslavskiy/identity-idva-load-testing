@@ -8,6 +8,14 @@ updates:
     labels:
       - dependencies
       - python
+  - package-ecosystem: pip
+    directory: "/selenium"
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 10
+    labels:
+      - dependencies
+      - python
   - package-ecosystem: github-actions
     directory: "/"
     schedule:
