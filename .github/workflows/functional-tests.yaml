@@ -9,6 +9,7 @@ on:
     paths-ignore:
       - '**.md'  # All markdown files in the repository
   workflow_call:
+  workflow_dispatch:
 
 jobs:
   unit-test:
