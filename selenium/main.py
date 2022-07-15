@@ -5,6 +5,7 @@ from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.common.by import By
 
 options = FirefoxOptions()
+options.headless = True
 
 driver = webdriver.Firefox(
     service=FirefoxService(GeckoDriverManager().install()), options=options
